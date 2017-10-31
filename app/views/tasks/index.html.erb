@@ -1,0 +1,15 @@
+<h1>These are the GOT tasks in your TO DO list:</h1>
+<p> <%= link_to "Add a new task", new_task_path %> </p>
+<ul>
+  <% @tasks.each do |t|  %>
+  <li> <!-- li are used to have bullet points -->
+    <h3><%= link_to t.name, task_path(t) %></h3>
+    <p> Name: <%= t.name %> </p>
+    <p> Status: <%= t.status %> </p>
+    <%= link_to "edit task", edit_task_path(t) %>
+    <%= link_to "remove task", task_path(t), method: :delete %>
+    <!-- to avoid going to the show page you precise the method -->
+  </li> <!-- li are used to have bullet points -->
+  <% end %>
+</ul>
+
